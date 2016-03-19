@@ -1,0 +1,9 @@
+{
+	"name": "Snake-Duel",
+	"description": "Simple multi-player snake game for use on my personal website.",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"socket.io": "~1.4.5"
+	}
+}
