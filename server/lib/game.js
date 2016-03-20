@@ -40,7 +40,7 @@ module.exports.game = {
 		// Only send data if it has changed since the last update was sent (update==true).
 		setInterval(function(){
 			if(this.update){
-				io.sockets.emit('update', {'grid': game.grid /*'nicks: activeNicks*/ });
+				io.sockets.emit('update', {'grid': game.grid, 'nicks': activeNicks });
 				this.update = false;
 			}
 		},66);
