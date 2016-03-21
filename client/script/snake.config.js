@@ -4,8 +4,8 @@ window.snake = {}
 
 // Static configuration information
 snake.config = {
-	'width': 600,
-	'height': 900,
+	'WIDTH': 600,
+	'HEIGHT': 900,
 	'TILE_SIZE': 12,
 	'ROWS': this.WIDTH/this.TILE_SIZE,
 	'COLS': this.HEIGHT/this.TILE_SIZE,

@@ -13,7 +13,7 @@ module.exports = function(socket){
 	this.timer = null;
 	this.speed =  0;
 	this.ms = 100;
-	this.initPosition = function(){
+	this.initPosition = function(game){
 		var valid = false;
 		while(!valid){
 			var pos1 = game.newEmptyPosition();
@@ -25,7 +25,7 @@ module.exports = function(socket){
 		this.segments.push(pos1);
 		this.segments.push(pos2);
 	};
-	this.enableListeners = function(){
+	this.enableListeners = function(game){
 		// Movemenet listeners, ensure snake can not move back on it's self
 		this.socket.on('right', function(){
 			 if(this.previousDirection !=='left') this.nextDirection = 'right';
@@ -40,47 +40,26 @@ module.exports = function(socket){
 			if(this.previousDirection !=='up') this.nextDirection = 'down';
 		});
 
-		this.socket.on('disconnect', function(){
-			// Remove from game.activeNicks here
-
-			// Remove segments
-			if(this.active){
-				clearInterval(this.timer);
-				for(var i=0; i < this.segments.length; i++){
-					game.grid[this.segments[i].x][this.segments[i].y] = 0;
-				}
-			}
-		});
 	};
 	this.disableListeners = function(){
 		// Remove socket listeners
 	};
-	this.move = function(){
-		// This will return true upon eating food so that speed can be increased
-		if(game.move(this)){
-			// Decrease ms here
-		}
-		/*
-		// Temporary test before implementing properly
-		var i = this.segments.length-1;
-		game.grid[this.segments[i].x][this.segments[i].y] = 0;
-		this.segments.splice(i, 1);
-		game.grid[(this.segments[i].x) + 1][this.segments[i].y] = 1;
-		this.segments.splice(0,0,{newposition});
-
-		// io.sockets.emit
-		*/
-	};
-	this.join = function(){
+	this.join = function(game){
 		if(!this.active){
-			this.initPosition();
+			this.initPosition(game);
 
 			game.grid[this.segments[0].x][this.segments[0].y] = 1;
+			game.grid[this.segments[1].x][this.segments[1].y] = 1;
 			// game.activeNicks.push(this.nick);
+			game.update = true;
 			this.active = true;
-			this.enableListeners();
+			this.enableListeners(game);
 
-			this.timer = setInterval(this.move, this.ms);
+			this.timer = setInterval(function(){
+				if(game.move(this)){
+					// Food has been eaten, increase speed
+				}
+			}, this.ms);
 		}
 	};
 }

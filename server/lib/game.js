@@ -1,15 +1,13 @@
 // game.js
 // Game logic, moving players, handling collision, adding fruit etc
 
-module.exports = {
-	init: function(){
+module.exports = function(){
+	this.init = function(io){
 		// Load configuration information
 		this.config = require('../config/game.json');
 		this.config.ROWS = this.config.width/this.config.TILE_SIZE;
 		this.config.COLS = this.config.height/this.config.TILE_SIZE;
 
-		console.log(this.config.ROWS);
-		console.log(this.config.COLS);
 		// Initialize the grid, 0 == snake, 1 == blocked, 2 == food
 		this.grid = new Array(this.config.COLS);
 		for(var i=0; i<this.config.COLS; i++){
@@ -41,17 +39,8 @@ module.exports = {
 		this.addFruit();
 		this.addFruit();
 
-		// Set an interval to regularly update clients with the new map data.
-		// Only send data if it has changed since the last update was sent.
-		setInterval(function(){
-			if(this.update){
-				io.sockets.emit('update', {'grid': this.grid, 'nicks': activeNicks });
-				this.update = false;
-			}
-		},66);
-
-	},
-	addFruit: function(){
+	};
+	this.addFruit = function(){
 		// Get an empty position on the map and set the value to 2
 		// 2 == food
 		/*return this.newEmptyPosition(function(pos){
@@ -61,8 +50,8 @@ module.exports = {
 		var pos = this.newEmptyPosition();
 		this.grid[pos.x][pos.y] = 2;
 		this.update = true;
-	},
-	newEmptyPosition: function(/*callback*/){
+	};
+	this.newEmptyPosition = function(/*callback*/){
 		// Randomly choose tiles on the map until an empty tile is found
 		var empty = false;
 		var position = {x: 0, y:0};
@@ -80,7 +69,21 @@ module.exports = {
 			}
 		}
 		//callback(position);
-	},
-	activeNicks: [],
-	update: true
+	};
+	this.move = function(player){
+		// Move a player. Check status of target position, return true if the
+		// player eats any food so that the speed can be increased.
+		// Temporary test before implementing properly
+		/*var i = this.segments.length-1;
+		game.grid[this.segments[i].x][this.segments[i].y] = 0;
+		this.segments.splice(i, 1);
+		game.grid[(this.segments[i].x) + 1][this.segments[i].y] = 1;
+		this.segments.splice(0,0,{newposition});
+
+		// io.sockets.emit
+		*/
+		this.update = true;
+	}
+	this.activeNicks = [];
+	this.update = true;
 }

@@ -1,5 +1,6 @@
 // init.js
 // Initialize the game after the page has finished rendering
+var fruit;
 
 window.onload = function(){
 	// Canvas context
@@ -10,6 +11,11 @@ window.onload = function(){
 	// Call snake.game.keyDown() upon detecting a key press
 	document.addEventListener('keydown', snake.game.keyDown, false);
 
-	// Connect to the server
-	snake.connect();
+	// Load the fruit image and then connect, if more art is ever implemented
+	// then this will be moved to a proper resource loader.
+	fruit = new Image(12,12);
+	fruit.src = '../img/fruit.png';
+	fruit.onload = function(){
+		snake.connect();
+	}
 }
