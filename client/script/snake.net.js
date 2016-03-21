@@ -9,6 +9,7 @@ snake.connect = function(/*nick*/){
 	});
 
 	snake.session.socket.on('update', function(data){
+
 		snake.game.draw(data.grid, data.nicks);
 	});
 }

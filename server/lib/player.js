@@ -4,20 +4,19 @@
 // and at different speeds to one another, speeding up in correlation with fruit eaten.
 
 module.exports = function(socket){
-	this.active = false,
-	this.nick = '',
-	this.segments: [],
-	this.nextDirection: 'right',
-	this.previousDirection: 'right',
-	this.socket: socket,
-	this.timer: null,
-	this.speed: 0,
-	this.ms: 100,
-	this.initPosition: function(){
-		this.segments = [];
+	this.active = false;
+	this.nick = '';
+	this.segments = [];
+	this.nextDirection = 'right';
+	this.previousDirection = 'right';
+	this.socket = socket;
+	this.timer = null;
+	this.speed =  0;
+	this.ms = 100;
+	this.initPosition = function(){
 		var valid = false;
 		while(!valid){
-			var pos1 = newEmptyPosition();
+			var pos1 = game.newEmptyPosition();
 			var pos2 = {x: pos1.x-1, y: pos1.y}
 			if(game.grid[pos2.x][pos2.y]==0){
 				valid = true;
@@ -25,8 +24,8 @@ module.exports = function(socket){
 		}
 		this.segments.push(pos1);
 		this.segments.push(pos2);
-	},
-	this.enableListeners: function(){
+	};
+	this.enableListeners = function(){
 		// Movemenet listeners, ensure snake can not move back on it's self
 		this.socket.on('right', function(){
 			 if(this.previousDirection !=='left') this.nextDirection = 'right';
@@ -40,10 +39,10 @@ module.exports = function(socket){
 		this.socket.on('down', function(){
 			if(this.previousDirection !=='up') this.nextDirection = 'down';
 		});
-		
+
 		this.socket.on('disconnect', function(){
 			// Remove from game.activeNicks here
-			
+
 			// Remove segments
 			if(this.active){
 				clearInterval(this.timer);
@@ -52,11 +51,11 @@ module.exports = function(socket){
 				}
 			}
 		});
-	},
-	this.disableListeners: function(){
+	};
+	this.disableListeners = function(){
 		// Remove socket listeners
-	},
-	this.move: function(){
+	};
+	this.move = function(){
 		// This will return true upon eating food so that speed can be increased
 		if(game.move(this)){
 			// Decrease ms here
@@ -68,19 +67,20 @@ module.exports = function(socket){
 		this.segments.splice(i, 1);
 		game.grid[(this.segments[i].x) + 1][this.segments[i].y] = 1;
 		this.segments.splice(0,0,{newposition});
+
+		// io.sockets.emit
 		*/
-	}
-	this.join: function(){
+	};
+	this.join = function(){
 		if(!this.active){
 			this.initPosition();
+
+			game.grid[this.segments[0].x][this.segments[0].y] = 1;
+			// game.activeNicks.push(this.nick);
+			this.active = true;
+			this.enableListeners();
+
+			this.timer = setInterval(this.move, this.ms);
 		}
-		game.grid[this.segments[0].x][this.segments[0].y] = 1;
-		// game.activeNicks.push(this.nick);
-		this.active = true;
-		this.enableListeners();
-		
-		
-		this.timer = setInterval(this.move, this.ms);
-		
-	},
+	};
 }
