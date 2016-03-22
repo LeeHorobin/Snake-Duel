@@ -10,14 +10,19 @@ snake.game = {
 		for(var i=0; i<grid.length; i++){
 			for(var j=0; j<grid[i].length; j++){
 				if(typeof grid[i][j] === 'object'){  //TODO, CHANGE THIS?
-					snake.game.ctx.fillRect(i*snake.config.TILE_SIZE, j*snake.config.TILE_SIZE, snake.config.TILE_SIZE, snake.config.TILE_SIZE);
+					snake.game.ctx.fillRect(i*snake.config.TILE_SIZE,
+											j*snake.config.TILE_SIZE,
+											snake.config.TILE_SIZE,
+											snake.config.TILE_SIZE);
 				}
 				else if(grid[i][j] === 1){
-					snake.game.ctx.fillRect(i*snake.config.TILE_SIZE, j*snake.config.TILE_SIZE, snake.config.TILE_SIZE, snake.config.TILE_SIZE);
+					snake.game.ctx.fillRect(i*snake.config.TILE_SIZE,
+											j*snake.config.TILE_SIZE,
+											snake.config.TILE_SIZE,
+											snake.config.TILE_SIZE);
 				}
 				else if(grid[i][j] === 2){
 					snake.game.ctx.drawImage(fruit,12*i,12*j);
-					//ctx.fillRect(i*config.TILE_SIZE, j*config.TILE_SIZE, config.TILE_SIZE, config.TILE_SIZE);
 				}
 			}
 		}

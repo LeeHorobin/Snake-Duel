@@ -51,7 +51,6 @@ module.exports.init = function(server){
 	// Only send data if it has changed since the last update was sent.
 	setInterval(function(){
 		if(game.update){
-			console.log('update');
 			io.sockets.emit('update', {"grid": game.grid, "nicks": game.activeNicks });
 			game.update = false;
 		}

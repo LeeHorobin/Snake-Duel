@@ -1,5 +1,5 @@
 {
-	"width": 600,
-	"height": 900,
+	"WIDTH": 900,
+	"HEIGHT": 600,
 	"TILE_SIZE": 12
 }

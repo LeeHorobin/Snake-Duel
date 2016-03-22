@@ -1,5 +1,5 @@
 // snake.connect.js
-// Contains socket/networking logic as well as poviding a means to initiate socket.io
+// Initiates socket.io
 
 snake.connect = function(/*nick*/){
 	snake.session.socket = io.connect('http://leehorobin.com:8080');

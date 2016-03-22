@@ -1,7 +1,6 @@
 // player.js
-// Player object constructor, instantiated for each player upon connecting, enables keeping track of
-// acts as an interface between the game and the socket layer and allows players to move independently
-// and at different speeds to one another, speeding up in correlation with fruit eaten.
+// Player object constructor, instantiated for each player upon connecting
+// Acts as an interface between the game and the socket layer
 
 module.exports = function(socket){
 	this.active = false;
@@ -22,6 +21,7 @@ module.exports = function(socket){
 				valid = true;
 			}
 		}
+		console.log('adding segments');
 		this.segments.push(pos1);
 		this.segments.push(pos2);
 	};
@@ -47,7 +47,7 @@ module.exports = function(socket){
 	this.join = function(game){
 		if(!this.active){
 			this.initPosition(game);
-
+			console.log(this.segments[0]);
 			game.grid[this.segments[0].x][this.segments[0].y] = 1;
 			game.grid[this.segments[1].x][this.segments[1].y] = 1;
 			// game.activeNicks.push(this.nick);
@@ -55,8 +55,11 @@ module.exports = function(socket){
 			this.active = true;
 			this.enableListeners(game);
 
+			// Create a reference for the timer to use as it uses a different
+			// context for 'this'
+			var snake = this;
 			this.timer = setInterval(function(){
-				if(game.move(this)){
+				if(game.move(snake)){
 					// Food has been eaten, increase speed
 				}
 			}, this.ms);
