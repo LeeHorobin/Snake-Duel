@@ -30,7 +30,24 @@ snake.game = {
 		this.ctx.stroke();
 	},
 	keyDown: function(evt){
-		if(evt.keyCode == 13){
+		// Right arrow == 39, 'd' == 68
+		if (evt.keyCode == 39 || evt.keyCode == 68){
+			socket.emit('right');
+		}
+		// Left arrow = 37, 'a' == 65
+		else if (evt.keyCode == 37 || evt.keyCode == 65){
+			socket.emit('left');
+		}
+		// Up arrow = 38, 'w' == 87
+		else if (evt.keyCode == 38 || evt.keyCode == 87){
+			socket.emit('up');
+		}
+		// Down arrow = 40, 's' == 83
+		else if (evt.keyCode == 40 || evt.keyCode == 83){
+			socket.emit('down');
+		}
+		// Enter key == 13
+		else if(evt.keyCode == 13){
 			if(!snake.session.connected){
 				snake.session.socket.emit('join');
 			}
