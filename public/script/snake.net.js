@@ -2,7 +2,7 @@
 // Initiates socket.io
 
 snake.connect = function(/*nick*/){
-	snake.session.socket = io.connect('http://leehorobin.com:9001');
+	snake.session.socket = io.connect('http://snake.leehorobin.com');
 
 	snake.session.socket.on('connection', function(){
 		snake.session.connected = true;
