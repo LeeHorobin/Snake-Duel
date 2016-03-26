@@ -11,4 +11,9 @@ snake.connect = function(/*nick*/){
 	snake.session.socket.on('update', function(data){
 		snake.game.draw(data.grid, data.nicks);
 	});
+
+  snake.session.socket.on('score', function(score){
+    // TODO update score on page
+    console.log(score);
+  });
 }
