@@ -10,9 +10,16 @@
 		<script src='script/init.js'></script>
 	</head>
 	<body>
-		<canvas id='canvas' width='900px' height='600px' style='border:1px solid black;margin:30px'>
-			<p>Your browser does not support canvas.</p>
-		</canvas>
-		Press enter to join.
+    <div id='wrapper'>
+      <h1>Snake Duel</h1>
+      <p>Press enter to join the currently running multiplayer game. :)</p>
+      <div id='content'>
+  		  <canvas id='canvas' width='900px' height='600px'>
+  			  <p>Your browser does not support canvas.</p>
+  		  </canvas>
+        <div id='chat'>
+        </div>
+      </div>
+    </div>
 	</body>
 </html>
