@@ -54,6 +54,13 @@ body{
 #content{
   margin: 0 auto;
   width:1200px;
+  position:relative;
+}
+
+#score{
+  position:relative;
+  top:0px;
+  left:0px;
 }
 
 #canvas{
@@ -61,6 +68,9 @@ body{
   -webkit-box-shadow: 0px 3px 3px 1px #444;
 	-moz-box-shadow: 0px 3px 3px 1px #444;
 	box-shadow: 0px 3px 3px 1px #444;
+  position:relative;
+  top:0px;
+  left:0px;
 }
 
 #chat{
