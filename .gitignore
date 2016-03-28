@@ -1,4 +1,2 @@
 node_modules/*
-client/public_html/*
-client/img/*
 public/img/*

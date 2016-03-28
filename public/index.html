@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Snake Duel</title>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
     <link href='style/style.css' rel='stylesheet'>
 		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 		<script src='script/snake.config.js'></script>
@@ -10,15 +11,21 @@
 		<script src='script/init.js'></script>
 	</head>
 	<body>
-    <div id='wrapper'>
+    <div id='header'>
       <h1>Snake Duel</h1>
-      <p>Press enter to join the currently running multiplayer game. :)</p>
+    </div>
+    <div id='wrapper'>
       <div id='content'>
+        <div id='score'>
+          <p><span id='display_score'>Score: </span><p>
+          <p><span id='display_speed'>Speed: </span><p>
+        </div>
   		  <canvas id='canvas' width='900px' height='600px'>
   			  <p>Your browser does not support canvas.</p>
   		  </canvas>
         <div id='chat'>
-        </div>
+            Chat updates to go here.
+        </div><!--/chat-->
       </div>
     </div>
 	</body>
