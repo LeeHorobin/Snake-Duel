@@ -48,7 +48,8 @@ snake.game = {
 		}
 		// Enter key == 13
 		else if(evt.keyCode == 13){
-			if(!snake.session.connected){
+			if(snake.session.connected){
+        console.log('Emitting join request');
 				snake.session.socket.emit('join');
 			}
 		}
