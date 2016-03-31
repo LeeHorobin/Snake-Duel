@@ -1,8 +1,8 @@
 // snake.connect.js
 // Initiates socket.io
 
-var score = getElementByID('display_score');
-// var speed = getElementByID('display_speed');
+var score = getElementById('display_score');
+// var speed = getElementById('display_speed');
 
 snake.connect = function(/*nick*/){
 
