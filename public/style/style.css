@@ -33,7 +33,7 @@ h1{
 }
 
 p{
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-family: 'Droid Serif', serif;
   color:white;
 }
@@ -47,8 +47,12 @@ span.connectionStatus{
   float:right;
 }
 
-#display_connection{
+.disconnected{
   color:red;
+}
+
+.connected{
+  color:green;
 }
 
 body{
