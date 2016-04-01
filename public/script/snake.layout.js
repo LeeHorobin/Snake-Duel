@@ -12,6 +12,14 @@ snake.layout = {
     this.chatMessage = document.getElementById('chatMessage');
     this.chatSubmit = document.getElementById('chatSubmit');
 
+    this.chat = document.getElementById('chat');
+    this.stats = document.getElementById('stats');
+    this.highscores = document.getElementById('highscores');
+
+    this.toggleChat = document.getElementById('toggleChat');
+    this.toggleStats = document.getElementById('toggleStats');
+    this.toggleHighScores = document.getElementById('toggleHighScores');
+
     this.chatMessage.onclick = function(){
       // Clear the default message the first time the input box is clicked
       if(snake.layout.firstInteraction){
@@ -33,6 +41,34 @@ snake.layout = {
       snake.layout.chatMessage.value = '';
     }
 
+    this.toggleChat.onclick = function(){
+      snake.layout.toggleChat.className = 'toggle visible';
+      snake.layout.toggleStats.className = 'toggle hidden';
+      snake.layout.toggleHighScores.className = 'toggle hidden';
+
+      snake.layout.chat.style.visibility = 'visible';
+      snake.layout.stats.style.visibility = 'hidden';
+      snake.layout.highscores.style.visibility = 'hidden';
+
+    }
+    this.toggleStats.onclick = function(){
+      snake.layout.toggleStats.className = 'toggle visible';
+      snake.layout.toggleChat.className = 'toggle hidden';
+      snake.layout.toggleHighScores.className = 'toggle hidden';
+
+      snake.layout.stats.style.visibility = 'visible';
+      snake.layout.chat.style.visibility = 'hidden';
+      snake.layout.highscores.style.visibility = 'hidden';
+    }
+    this.toggleHighScores.onclick = function(){
+      snake.layout.toggleHighScores.className = 'toggle visible';
+      snake.layout.toggleStats.className = 'toggle hidden';
+      snake.layout.toggleChat.className = 'toggle hidden';
+
+      snake.layout.highscores.style.visibility = 'visible';
+      snake.layout.chat.style.visibility = 'hidden';
+      snake.layout.stats.style.visibility = 'hidden';
+    }
   },
   addMessage: function(text){
     console.dir(text);

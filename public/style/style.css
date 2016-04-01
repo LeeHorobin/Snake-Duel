@@ -140,8 +140,16 @@ body{
   height:560px;
 }
 
+.display-none{
+  display: none;
+}
+
+.display-inline{
+  display: inline;
+}
+
 #chat{
-  position:relative;
+  position:absolute;
   height:560px;
 }
 
@@ -167,7 +175,7 @@ body{
   position:absolute;
   bottom:0px;
   height:35px;
-  width:100%;
+  width:296px;
   line-height:30px;
   vertical-align:center;
   border-top:1px solid white;;
@@ -200,9 +208,13 @@ input{
 }
 
 #stats{
-  display:none;
+  height:100%;
+  position:absolute;
+  visibility:hidden;
 }
 
 #highscores{
-  display:none;
+  height:100%;
+  position:absolute;
+  visibility:hidden;
 }
