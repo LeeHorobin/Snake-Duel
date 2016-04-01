@@ -66,8 +66,7 @@ body{
 }
 
 #description{
-  text-align:center;
-  margin-bottom:5px;
+  margin-bottom:10px;
 }
 
 #wrapper{
@@ -153,6 +152,17 @@ body{
   overflow:auto;
 }
 
+.message{
+  width:296px;
+  font-size:1em;
+  padding-top:3px;
+  padding-bottom:3px;
+}
+
+.messageTwo{
+  background-color:#333;
+}
+
 #chatInput{
   position:absolute;
   bottom:0px;
@@ -163,9 +173,34 @@ body{
   border-top:1px solid white;;
 }
 
+#chatMessage{
+  float:left;
+  width:236px;
+  height:30px;
+}
+
+input{
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+}
+
+#chatSubmit{
+  float:left;
+  width:60px;
+  background-color:#224;
+  text-align:center;
+  border-left:1px solid white;
+}
+
+#chatSubmit:hover{
+  cursor:pointer;
+  background-color:#CCE;
+  color:#224;
+}
+
 #stats{
   display:none;
-
 }
 
 #highscores{

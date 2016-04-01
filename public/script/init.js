@@ -10,6 +10,9 @@ window.onload = function(){
   // snake.game.ctx.fillStyle = "#30F00C"
   snake.game.ctx.fillStyle = "#FFF"
 
+  // Add onclick events to the chat toggles, etc
+  snake.layout.addListeners();
+
 	// Call snake.game.keyDown() upon detecting a key press
 	document.addEventListener('keydown', snake.game.keyDown, false);
 

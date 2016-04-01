@@ -30,7 +30,7 @@ snake.initiateListeners = function(socket){
 	});
 
   socket.on('chat.text', function(data){
-		// Append content to chat box
+    snake.layout.addMessage(data);
 	});
 
   socket.on('info', function(data){

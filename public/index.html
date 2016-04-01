@@ -8,6 +8,7 @@
 		<script src='script/snake.config.js'></script>
 		<script src='script/snake.game.js'></script>
 		<script src='script/snake.net.js'></script>
+    <script src='script/snake.layout.js'></script>
 		<script src='script/init.js'></script>
 	</head>
 	<body>
@@ -17,8 +18,8 @@
     <div id='wrapper'>
       <div id='content'>
         <p id='description'>
-          Online multiplayer snake!  Press enter to join in the madness, arrow
-          keys or WASD to move.
+          Online multiplayer snake!  Press enter (with chat input not selected)
+          to join in the madness, arrow keys or WASD to move.
         </p>
         <div id='score'>
           <p>
@@ -54,10 +55,12 @@
           </div><!--/toggle-->
           <div id='chat' class='sidebar-views'>
             <div id='chatContent'>
-              Chat!
             </div>
             <div id='chatInput'>
-              Input
+              <input type='text' id='chatMessage' value='Type chat here!' maxlength='80'>
+              <div id='chatSubmit'>
+                Submit
+              </div>
             </div>
           </div>
           <div id='stats' class='sidebar-views'>

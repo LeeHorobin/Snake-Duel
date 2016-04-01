@@ -61,8 +61,14 @@ snake.game = {
 		// Enter key == 13
 		else if(evt.keyCode == 13){
 			if(snake.session.connected){
-        console.log('Emitting join request');
-				snake.session.socket.emit('join');
+        if(document.activeElement.id === 'chatMessage'){
+          // Chat input is in focus, submit the chat, don't emit a join requested
+          snake.layout.chatSubmit.click();
+        }
+        else{
+          console.log('Emitting join request');
+				  snake.session.socket.emit('join');
+        }
 			}
 		}
 		else console.log(evt.keyCode);
