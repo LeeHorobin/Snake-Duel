@@ -7,7 +7,7 @@ snake.connect = function(){
   snake.session.socket.on('connect', function(){
     var connectionStatus = document.getElementById('display_connection')
     connectionStatus.className = 'connected';
-    connectionStatus.innerHTML = 'Connected!';
+    connectionStatus.innerHTML = 'Connected';
     snake.session.connected = true;
 
     // Call snake.game.keyDown() upon detecting a key press
@@ -29,8 +29,13 @@ snake.initiateListeners = function(socket){
 		snake.game.draw(data.grid, data.nicks);
 	});
 
+  socket.on('chat.text', function(data){
+		// Append content to chat box
+	});
+
   socket.on('info', function(data){
-    score.innerHTML = data.score;
+    display.score.innerHTML = data.score;
     // speed.innerHTML = data.speed;
+    console.dir(data);
   });
 }

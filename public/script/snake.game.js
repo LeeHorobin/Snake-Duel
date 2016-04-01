@@ -10,13 +10,25 @@ snake.game = {
 		for(var i=0; i<grid.length; i++){
 			for(var j=0; j<grid[i].length; j++){
 				if(typeof grid[i][j] === 'object'){  //TODO, CHANGE THIS?
+          // Fill white
 					snake.game.ctx.fillRect(i*snake.config.TILE_SIZE,
+											j*snake.config.TILE_SIZE,
+											snake.config.TILE_SIZE,
+											snake.config.TILE_SIZE);
+          // Add border/outline
+          snake.game.ctx.rect(i*snake.config.TILE_SIZE,
 											j*snake.config.TILE_SIZE,
 											snake.config.TILE_SIZE,
 											snake.config.TILE_SIZE);
 				}
 				else if(grid[i][j] === 1){
+          // Fill white
 					snake.game.ctx.fillRect(i*snake.config.TILE_SIZE,
+											j*snake.config.TILE_SIZE,
+											snake.config.TILE_SIZE,
+											snake.config.TILE_SIZE);
+          // Add border/outline
+          snake.game.ctx.rect(i*snake.config.TILE_SIZE,
 											j*snake.config.TILE_SIZE,
 											snake.config.TILE_SIZE,
 											snake.config.TILE_SIZE);

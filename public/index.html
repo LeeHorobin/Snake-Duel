@@ -16,6 +16,10 @@
     </div>
     <div id='wrapper'>
       <div id='content'>
+        <p id='description'>
+          Online multiplayer snake!  Press enter to join in the madness, arrow
+          keys or WASD to move.
+        </p>
         <div id='score'>
           <p>
             <span class='gameStatus'>
@@ -25,16 +29,44 @@
               Speed: <span id='display_speed'></span>
             </span>
             <span class='connectionStatus'>
-              Connection status: <span class='disconnected' id='display_connection'>Disconnected</span>
+              Connection status:
+                <span class='disconnected' id='display_connection'>
+                  Disconnected
+                </span>
             </span>
           </p>
         </div>
   		  <canvas id='canvas' width='900px' height='600px'>
   			  <p>Your browser does not support canvas.</p>
   		  </canvas>
-        <div id='chat'>
-            Chat updates to go here.
-        </div><!--/chat-->
+        <!--Allow chnaging display between chat, stats and high scores-->
+        <div id='sidebar'>
+          <div id='toggle'>
+            <div class='toggle visible' id='toggleChat'>
+              Chat
+            </div>
+            <div class='toggle hidden' id='toggleStats'>
+              Stats
+            </div>
+            <div class='toggle hidden' id='toggleHighScores'>
+              High Scores
+            </div>
+          </div><!--/toggle-->
+          <div id='chat' class='sidebar-views'>
+            <div id='chatContent'>
+              Chat!
+            </div>
+            <div id='chatInput'>
+              Input
+            </div>
+          </div>
+          <div id='stats' class='sidebar-views'>
+            Statistics
+          </div>
+          <div id='highscores' class='sidebar-views'>
+            high scores
+          </div>
+        </div><!--/sidebar-->
       </div><!--/content-->
     </div><!--/wrapper-->
 	</body>
