@@ -4,14 +4,12 @@ window.snake = {}
 
 // Static configuration information
 snake.config = {
-	'WIDTH': 900,
-	'HEIGHT': 600,
+	'WIDTH':     900,
+	'HEIGHT':    600,
 	'TILE_SIZE': 12,
-	'ROWS': this.WIDTH/this.TILE_SIZE,
-	'COLS': this.HEIGHT/this.TILE_SIZE,
-	'PORT': 8080
+	'ROWS':      this.WIDTH/this.TILE_SIZE,
+	'COLS':      this.HEIGHT/this.TILE_SIZE
 }
-
 
 // Store session information
 snake.session = {

@@ -7,6 +7,7 @@ window.onload = function(){
 	var canvas = document.getElementById('canvas');
 	snake.game.ctx = canvas.getContext('2d');
 	snake.game.ctx.lineWidth = "1";
+
   // snake.game.ctx.fillStyle = "#30F00C"
   snake.game.ctx.fillStyle = "#FFF"
 

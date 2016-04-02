@@ -7,6 +7,7 @@ snake.layout = {
   // Track the number of messages so that they can be styled with the correct
   // class
   messageNumber: 0,
+  open: 'chat',
   addListeners: function(){
     this.chatContent = document.getElementById('chatContent');
     this.chatMessage = document.getElementById('chatMessage');
@@ -42,33 +43,50 @@ snake.layout = {
     }
 
     this.toggleChat.onclick = function(){
-      snake.layout.toggleChat.className = 'toggle visible';
-      snake.layout.toggleStats.className = 'toggle hidden';
-      snake.layout.toggleHighScores.className = 'toggle hidden';
-
-      snake.layout.chat.style.visibility = 'visible';
-      snake.layout.stats.style.visibility = 'hidden';
-      snake.layout.highscores.style.visibility = 'hidden';
-
-    }
+      snake.layout.hideViews();
+      if(snake.layout.open === 'chat'){
+        // Chat is open and chat was toggled, do noting as it is now closed
+        // This is so small screens can toggle nothing open
+        snake.layout.open = 'nothing';
+      }
+      else{
+        snake.layout.open = 'chat';
+        snake.layout.toggleChat.className = 'toggle visible';
+        snake.layout.chat.style.visibility = 'visible';
+      }
+    };
     this.toggleStats.onclick = function(){
-      snake.layout.toggleStats.className = 'toggle visible';
-      snake.layout.toggleChat.className = 'toggle hidden';
-      snake.layout.toggleHighScores.className = 'toggle hidden';
-
-      snake.layout.stats.style.visibility = 'visible';
-      snake.layout.chat.style.visibility = 'hidden';
-      snake.layout.highscores.style.visibility = 'hidden';
-    }
+      snake.layout.hideViews();
+      if(snake.layout.open === 'stats'){
+        // Do nothing
+        snake.layout.open = 'nothing';
+      }
+      else{
+        snake.layout.open = 'stats';
+        snake.layout.toggleStats.className = 'toggle visible';
+        snake.layout.stats.style.visibility = 'visible';
+      }
+    };
     this.toggleHighScores.onclick = function(){
-      snake.layout.toggleHighScores.className = 'toggle visible';
-      snake.layout.toggleStats.className = 'toggle hidden';
-      snake.layout.toggleChat.className = 'toggle hidden';
-
-      snake.layout.highscores.style.visibility = 'visible';
-      snake.layout.chat.style.visibility = 'hidden';
-      snake.layout.stats.style.visibility = 'hidden';
-    }
+      snake.layout.hideViews();
+      if(snake.layout.open === 'highscores'){
+        // Do nothing
+        snake.layout.open = 'nothing';
+      }
+      else{
+        snake.layout.open = 'highscores';
+        snake.layout.toggleHighScores.className = 'toggle visible';
+        snake.layout.highscores.style.visibility = 'visible';
+      }
+    };
+  },
+  hideViews: function(){
+    snake.layout.toggleHighScores.className = 'toggle hidden';
+    snake.layout.toggleStats.className = 'toggle hidden';
+    snake.layout.toggleChat.className = 'toggle hidden';
+    snake.layout.highscores.style.visibility = 'hidden';
+    snake.layout.chat.style.visibility = 'hidden';
+    snake.layout.stats.style.visibility = 'hidden';
   },
   addMessage: function(text){
     console.dir(text);

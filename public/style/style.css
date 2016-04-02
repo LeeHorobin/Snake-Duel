@@ -71,6 +71,7 @@ body{
 
 #wrapper{
   width: 100%;
+  height:100%;
 }
 
 #content{
@@ -115,6 +116,10 @@ body{
   height:40px;
 }
 
+#toggleControls{
+  display:none;
+}
+
 .toggle{
   height:40px;
   width:99px;
@@ -124,6 +129,10 @@ body{
   text-align:center;
   vertical-align:center;
   line-height:40px;
+}
+
+.toggle-spacer{
+  width:0px;
 }
 
 .hidden:hover{
@@ -138,14 +147,6 @@ body{
 
 .sidebar-views{
   height:560px;
-}
-
-.display-none{
-  display: none;
-}
-
-.display-inline{
-  display: inline;
 }
 
 #chat{
@@ -217,4 +218,122 @@ input{
   height:100%;
   position:absolute;
   visibility:hidden;
+}
+
+@media (max-width: 1224px){
+  html{
+    height:100%;
+    width:100%;
+  }
+  body{
+    height:100%;
+    width:100%;
+  }
+  h1{
+    font-size:1.2em;
+    vertical-align: center;
+  }
+  #description{
+    display:none;
+  }
+  #title{
+    height:60px;
+  }
+  #score{
+    display:none;
+  }
+  #wrapper{
+    height:100%;
+    width:100%;
+    position:absolute;
+    top:0px;
+  }
+  #content{
+    width:100%;
+    height:100%;
+    padding-top:60px;
+  }
+  #canvas{
+    width:100%;
+  }
+  #toggle{
+    width:100%;
+    height:40px;
+    position:fixed;
+    bottom:0px;
+  }
+  #sidebar{
+    position:fixed;
+    bottom:0px;
+    width:100%;
+    height:40px;
+    border:0px;
+    margin:0px;
+  }
+  .sidebar-views{
+    visibility:hidden;
+    position:fixed;
+    width:100%;
+    bottom:40px;
+  }
+  #chat{
+    overflow-y:visible;
+    position:fixed;
+    bottom:30px;
+    width:100%;
+  }
+  .toggle{
+    width:25%;
+    border:1px solid white;
+  }
+  .visible{
+    border-bottom:1px solid white;
+    background-color:#333;
+  }
+  #toggleControls{
+    display:inherit;
+  }
+  #chatContent{
+    position:fixed;
+    bottom:70px;
+    width:100%;
+    max-height:100%
+    overflow-y:scroll;
+  }
+  .message{
+    width:100%;
+    font-size:1em;
+  }
+  .messageTwo{
+    background-color:#333;
+  }
+  #chatInput{
+    position:fixed;
+    bottom:40px;
+    height:30px;
+    width:100%;
+    line-height:30px;
+    vertical-align:center;
+    border-top:1px solid white;;
+  }
+  #chatMessage{
+    float:left;
+    width:100%;
+    height:30px;
+  }
+  #chatSubmit{
+    position:absolute;
+    right:0px;
+    width:60px;
+    height:30px;
+    background-color:#224;
+    vertical-align:center;
+    text-align:center;
+    border-left:1px solid white;
+  }
+  #chatSubmit:hover{
+    cursor:pointer;
+    background-color:#CCE;
+    color:#224;
+  }
 }

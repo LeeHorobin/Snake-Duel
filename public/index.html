@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Snake Duel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
     <link href='style/style.css' rel='stylesheet'>
 		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
@@ -43,6 +44,7 @@
         <!--Allow chnaging display between chat, stats and high scores-->
         <div id='sidebar'>
           <div id='toggle'>
+            <div class='toggle-spacer'></div>
             <div class='toggle visible' id='toggleChat'>
               Chat
             </div>
@@ -52,6 +54,10 @@
             <div class='toggle hidden' id='toggleHighScores'>
               High Scores
             </div>
+            <div class='toggle hidden' id='toggleControls'>
+              Controls
+            </div>
+            <div class='toggle-spacer'></div>
           </div><!--/toggle-->
           <div id='chat' class='sidebar-views'>
             <div id='chatContent'>
@@ -64,7 +70,7 @@
             </div>
           </div>
           <div id='stats' class='sidebar-views'>
-            Statistics
+            Statistics slected!
           </div>
           <div id='highscores' class='sidebar-views'>
             high scores

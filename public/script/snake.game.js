@@ -1,6 +1,5 @@
 // snake.game.js
 // Rendering and input logic
-
 snake.game = {
 	draw: function(grid, nicks){
 		this.ctx.beginPath();
